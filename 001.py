@@ -5,7 +5,7 @@ import random
 import threading
 import time
 
-board_y = 31
+board_y = 29
 board_x = 28
 
 board = [
