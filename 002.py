@@ -8,7 +8,7 @@ import time
 BG = (30, 30, 30)
 WLL = (120, 120, 120)
 
-board_y = 28
+board_y = 29
 board_x = 28
 
 length = 10
@@ -19,6 +19,7 @@ tab_x = board_x * length + board_x * gap + gap
 
 board = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1],
     [1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -55,9 +56,9 @@ def draw(screen):
             Y = y * (length + gap) + gap
 
             if board[y][x] == 0:
-                pygame.draw.rect(screen, BG, [X, Y, length, length], border_radius = 5)
+                pygame.draw.rect(screen, BG, [X, Y, length, length], border_radius = 2)
             if board[y][x] == 1:
-                pygame.draw.rect(screen, WLL, [X, Y, length, length], border_radius = 5)
+                pygame.draw.rect(screen, WLL, [X, Y, length, length], border_radius = 2)
 
 
 def main():
