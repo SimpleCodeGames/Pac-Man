@@ -1,4 +1,4 @@
-# Smoother Movement Added
+# Smoother Movement + Gaps
 import pygame
 import sys
 import random
@@ -15,8 +15,11 @@ board_x = 28
 # Screen Variables
 length = 10
 step = 1
+gap = 2
 tab_y = board_y * length
-tab_x = board_x * length 
+tab_x = board_x * length
+scrn_y = board_y * (length + gap) + gap
+scrn_x = board_x * (length + gap) + gap
 # Player Variables
 plyr = [0, 0]
 scrn = []
@@ -105,20 +108,22 @@ def plyr_to_scrn(state):
 def draw(screen):
     for y in range(tab_y):
         for x in range(tab_x):
+            Y = y + gap * (y//length)
+            X = x + gap * (x//length)
 
             if scrn[y][x] == 0:
-                pygame.draw.rect(screen, BG, [x, y, 1, 1], border_radius = 0)
+                pygame.draw.rect(screen, BG, [X, Y, 1, 1], border_radius = 0)
             if scrn[y][x] == 1:
-                pygame.draw.rect(screen, WLL, [x, y, 1, 1], border_radius = 0)
+                pygame.draw.rect(screen, WLL, [X, Y, 1, 1], border_radius = 0)
             if scrn[y][x] == 2:
-                pygame.draw.rect(screen, ACTV, [x, y, 1, 1], border_radius = 0)
+                pygame.draw.rect(screen, ACTV, [X, Y, 1, 1], border_radius = 0)
 
 
 def main():
     global board, board_y, board_x, tab_y, tab_x, plyr, drct
     pygame.init()
     pygame.display.set_caption("Pac-Man 004")
-    screen = pygame.display.set_mode((tab_x, tab_y))
+    screen = pygame.display.set_mode((scrn_x, scrn_y))
     clock = pygame.time.Clock()
 
     font = pygame.font.Font(None, 50)
