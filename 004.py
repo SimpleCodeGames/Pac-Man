@@ -16,10 +16,10 @@ board_x = 28
 length = 10
 step = 1
 gap = 2
-tab_y = board_y * length
-tab_x = board_x * length
-scrn_y = board_y * (length + gap) + gap
-scrn_x = board_x * (length + gap) + gap
+scrn_y = board_y * length
+scrn_x = board_x * length
+tab_y = board_y * (length + gap) + gap
+tab_x = board_x * (length + gap) + gap
 # Player Variables
 plyr = [0, 0]
 scrn = []
@@ -73,8 +73,8 @@ def check(direction):
 def spawn():
     global plyr, drct, scrn
     plyr = [15 * length, 13 * length]
-    for y in range(tab_y):
-        for x in range(tab_x):
+    for y in range(scrn_y):
+        for x in range(scrn_x):
             scrn[y][x] = board[y//length][x//length]
     drct = 0
 
@@ -106,8 +106,8 @@ def plyr_to_scrn(state):
             scrn[plyr[0] + y][plyr[1] + x] = state
 
 def draw(screen):
-    for y in range(tab_y):
-        for x in range(tab_x):
+    for y in range(scrn_y):
+        for x in range(scrn_x):
             Y = y + gap * (y//length)
             X = x + gap * (x//length)
 
@@ -123,7 +123,7 @@ def main():
     global board, board_y, board_x, tab_y, tab_x, plyr, drct
     pygame.init()
     pygame.display.set_caption("Pac-Man 004")
-    screen = pygame.display.set_mode((scrn_x, scrn_y))
+    screen = pygame.display.set_mode((tab_x, tab_y))
     clock = pygame.time.Clock()
 
     font = pygame.font.Font(None, 50)
