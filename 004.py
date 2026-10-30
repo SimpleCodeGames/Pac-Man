@@ -62,9 +62,9 @@ board = [
 # Bololean Values
 def check(direction):
     if direction == 3:
-        return (plyr[1] + 1 < tab_x) and all(scrn[plyr[0] + y][plyr[1] + x + step] != 1 for y in range(length) for x in range(length))
+        return (plyr[1] + 1 < scrn_x) and all(scrn[plyr[0] + y][plyr[1] + x + step] != 1 for y in range(length) for x in range(length))
     elif direction == 6:
-        return (plyr[0] + 1 < tab_y) and all(scrn[plyr[0] + y + step][plyr[1] + x] != 1 for y in range(length) for x in range(length))
+        return (plyr[0] + 1 < scrn_y) and all(scrn[plyr[0] + y + step][plyr[1] + x] != 1 for y in range(length) for x in range(length))
     elif direction == 9:
         return (plyr[1] - 1 >= 0) and all(scrn[plyr[0] + y][plyr[1] + x - step] != 1 for y in range(length) for x in range(length))
     elif direction == 12:
