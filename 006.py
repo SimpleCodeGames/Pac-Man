@@ -201,7 +201,7 @@ def red():
     time.sleep(1)
     cnt = 40
     while not game_over:
-        time.sleep(0.015)
+        time.sleep(0.0175)
         with lock_plyr and lock_red:
             if game_over: break
             to_scrn(ghost[0], 0)
